@@ -6,16 +6,9 @@
 	function pushToCart($array) {
 		array_push($_SESSION['cart'],$array);
 	}
-	function get_session($key) {
-		if(isset($_SESSION[$key])) {
-			return $_SESSION[$key];
-		} else {
-			return false;
-		}
-	}
-	function unset_session($key) {
-		if(isset($_SESSION[$key])) {
-			unset($_SESSION[$key]);
+	function unset_session($cartKey) {
+		if(isset($_SESSION['cart'][$cartKey])) {
+			unset($_SESSION['cart'][$cartKey]);
 		} else {
 			return false;
 		}

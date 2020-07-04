@@ -38,8 +38,8 @@
 								<span>Xóa</span>
 							</div>
 						</div>
-						<?php foreach($_SESSION['cart'] as $product) { ?>
-							<div class="product-cart">
+						<?php $total = 0; foreach($_SESSION['cart'] as $key => $product) { ?>
+						<div class="product-cart">
 							<div class="one-forth">
 								<div class="product-img">
 									<img class="img-thumbnail cart-img" src="./images/<?php echo $product['product_image']; ?>">
@@ -61,12 +61,12 @@
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<span class="price" class="addUp">₫ 1.200.000</span>
+									<span class="price" class="addUp"><?php $total += $product['product_price']*$product['product_quantity']; echo number_format($product['product_price']*$product['product_quantity'],2); ?> vnđ</span>
 								</div>
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<a href="./dropFromCart" class="closed"></a>
+									<a href="./dropFromCart.php?cartKey=<?php echo $key; ?>" class="closed"></a>
 								</div>
 							</div>
 						</div>
@@ -83,10 +83,10 @@
 								<div class="col-md-3 col-md-push-1 text-center">
 									<div class="total">
 										<div class="sub">
-											<p><span>Tổng:</span> <span>₫ 4.000.000</span></p>
+											<p><span>Tổng:</span> <span><?php echo number_format($total,2); ?> vnđ</span></p>
 										</div>
 										<div class="grand-total">
-											<p><span><strong>Tổng cộng:</strong></span> <span>₫ 3.550.000</span></p>
+											<p><span><strong>Tổng cộng:</strong></span> <span><?php echo number_format($total,2); ?> vnđ</span></p>
 											<a href="index.php?page_layout=checkout" class="btn btn-primary">Thanh toán <i class="icon-arrow-right-circle"></i></a>
 										</div>
 									</div>
