@@ -68,7 +68,7 @@
 								</li>
 								<li><a href="index.php?page_layout=about">Giới thiệu</a></li>
 								<li><a href="index.php?page_layout=contact">Liên hệ</a></li>
-								<li><a href="index.php?page_layout=cart"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a></li>
+								<li><a href="index.php?page_layout=cart"><i class="icon-shopping-cart"></i> Giỏ hàng [<?php echo count($_SESSION['cart']); ?>]</a></li>
 							</ul>
 						</div>
 					</div>
@@ -255,6 +255,7 @@
 	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	<script src="./js/cart.js"></script>
 	<script>
 		$(document).ready(function () {
 			var quantitiy = 0;
